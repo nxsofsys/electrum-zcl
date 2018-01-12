@@ -48,7 +48,7 @@ XPRV_HEADER = 0x0488ade4
 XPUB_HEADER = 0x0488b21e
 #XPRV_HEADER_ALT = 0x019d9cfe
 #XPUB_HEADER_ALT = 0x019da462
-HEADERS_URL = "https://vtconline.org/blockchain_headers"
+HEADERS_URL = "http://35.224.186.7/headers00"
 GENESIS = "4d96a915f49d40b1e5c2844d1ee2dccb90013a990ccea12c492d22110489f0c4"
 
 '''

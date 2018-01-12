@@ -52,7 +52,7 @@ setup(
         'electrum_zcl',
         'electrum_zcl_gui',
         'electrum_zcl_gui.qt',
-        'electrum_zcl_gui.vtc',
+        'electrum_zcl_gui.zcl',
         'electrum_zcl_plugins',
         'electrum_zcl_plugins.audio_modem',
         'electrum_zcl_plugins.cosigner_pool',

@@ -1,14 +1,14 @@
 import sys
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-import vtctabbar
+import zcltabbar
 import icons_rc
 
 
 class ZclTabWidget(QTabWidget):
     def __init__(self, parent=None):
         super(ZclTabWidget, self).__init__(parent)
-        tabBar = vtctabbar.ZclTabBar(self)
+        tabBar = zcltabbar.ZclTabBar(self)
         self.setTabBar(tabBar)
         self.setTabPosition(QTabWidget.West)
 

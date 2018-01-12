@@ -98,7 +98,7 @@ wine mingw-get install mingw32-libz
 
 printf "[build]\ncompiler=mingw32\n" > $WINEPREFIX/drive_c/Python27/Lib/distutils/distutils.cfg
 
-$PYTHON -m pip install vtc_scrypt
+$PYTHON -m pip install zcl_scrypt
 $PYTHON -m pip install win_inet_pton
 
 $PYTHON -m pip install $LYRA2RE_HASH_PYTHON_URL

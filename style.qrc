@@ -3,7 +3,7 @@
         <file>fonts/SourceSansPro-Regular.otf</file>
         <file>fonts/SourceCodePro-Regular.otf</file>
     </qresource>
-    <qresource prefix="vtcstyle">
+    <qresource prefix="zclstyle">
         <file>style.qss</file>
     </qresource>
 </RCC>

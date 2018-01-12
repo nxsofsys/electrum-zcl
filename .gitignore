@@ -8,8 +8,8 @@ dist/
 contrib/pyinstaller/
 Electrum_ZCL.egg-info/
 gui/qt/icons_rc.py
-gui/vtc/icons_rc.py
-gui/vtc/style_rc.py
+gui/zcl/icons_rc.py
+gui/zcl/style_rc.py
 locale/
 .devlocaltmp/
 *_trial_temp

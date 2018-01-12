@@ -52,12 +52,7 @@ DEFAULT_PORTS = {'t':'55001', 's':'55002'}
 #then gradually switch remaining nodes to e-x nodes
 
 DEFAULT_SERVERS = {
-    'electrum-zclassic.xyz':{'t':'50001', 's':'50002'},
-    'electrum-zcl.stream':{'t':'50001', 's':'50002'},
-    'electrum-zcl.party':{'t':'50001', 's':'50002'},
-    'e1.zclassic-electrum.com':{'t':'50001', 's':'50002'},
-    'e2.zclassic-electrum.com':{'t':'50001', 's':'50002'},
-    'e3.zclassic-electrum.com':{'t':'50001', 's':'50002'}
+    '35.224.186.7':DEFAULT_PORTS,
 }
 
 '''
