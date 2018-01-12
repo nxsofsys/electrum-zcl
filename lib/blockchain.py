@@ -34,7 +34,7 @@ from bitcoin import *
 
 import lyra2re_hash
 import lyra2re2_hash
-import vtc_scrypt
+import ltc_script
 
 MAX_TARGET = 0x00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 

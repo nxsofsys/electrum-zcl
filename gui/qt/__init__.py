@@ -36,13 +36,13 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 import PyQt4.QtCore as QtCore
 
-from electrum_vtc.i18n import _, set_language
-from electrum_vtc.plugins import run_hook
-from electrum_vtc import SimpleConfig, Wallet, WalletStorage
-from electrum_vtc.synchronizer import Synchronizer
-from electrum_vtc.verifier import SPV
-from electrum_vtc.util import DebugMem, UserCancelled, InvalidPassword
-from electrum_vtc.wallet import Abstract_Wallet
+from electrum_zcl.i18n import _, set_language
+from electrum_zcl.plugins import run_hook
+from electrum_zcl import SimpleConfig, Wallet, WalletStorage
+from electrum_zcl.synchronizer import Synchronizer
+from electrum_zcl.verifier import SPV
+from electrum_zcl.util import DebugMem, UserCancelled, InvalidPassword
+from electrum_zcl.wallet import Abstract_Wallet
 from installwizard import InstallWizard, GoBack
 
 
@@ -91,7 +91,7 @@ class ElectrumGui:
         # init tray
         self.dark_icon = self.config.get("dark_icon", False)
         self.tray = QSystemTrayIcon(self.tray_icon(), None)
-        self.tray.setToolTip('Electrum-VTC')
+        self.tray.setToolTip('Electrum-zcl')
         self.tray.activated.connect(self.tray_activated)
         self.build_tray_menu()
         self.tray.show()
@@ -108,7 +108,7 @@ class ElectrumGui:
             submenu.addAction(_("Close"), window.close)
         m.addAction(_("Dark/Light"), self.toggle_tray_icon)
         m.addSeparator()
-        m.addAction(_("Exit Electrum-VTC"), self.close)
+        m.addAction(_("Exit Electrum-zcl"), self.close)
         self.tray.setContextMenu(m)
 
     def tray_icon(self):

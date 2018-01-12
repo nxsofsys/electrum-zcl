@@ -94,7 +94,7 @@ class ExchangeBase(PrintError):
 class Poloniex(ExchangeBase):
     def get_rates(self, ccy):
         json = self.get_json('poloniex.com', '/public?command=returnTicker')
-        return {ccy: self.convert_btc_to_ccy(ccy, Decimal(json['BTC_VTC']['last']))}
+        return {ccy: self.convert_btc_to_ccy(ccy, Decimal(json['BTC_zcl']['last']))}
 
 
 class Bittrex(ExchangeBase):

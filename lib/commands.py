@@ -82,7 +82,7 @@ def command(s):
         def func_wrapper(*args, **kwargs):
             c = known_commands[func.__name__]
             if c.requires_wallet and args[0].wallet is None:
-                raise BaseException("wallet not loaded. Use 'electrum-ltc daemon load_wallet'")
+                raise BaseException("wallet not loaded. Use 'electrum-zcl daemon load_wallet'")
             return func(*args, **kwargs)
         return func_wrapper
     return decorator
@@ -129,8 +129,8 @@ class Commands:
     @command('wn')
     def restore(self, text):
         """Restore a wallet from text. Text can be a seed phrase, a master
-        public key, a master private key, a list of Vertcoin addresses
-        or Vertcoin private keys. If you want to be prompted for your
+        public key, a master private key, a list of Zclassic addresses
+        or Zclassic private keys. If you want to be prompted for your
         seed, type '?' or ':' (concealed) """
         raise BaseException('Not a JSON-RPC command')
 
@@ -291,7 +291,7 @@ class Commands:
     @command('')
     def dumpprivkeys(self):
         """Deprecated."""
-        return "This command is deprecated. Use a pipe instead: 'electrum-vtc listaddresses | electrum-vtc getprivatekeys - '"
+        return "This command is deprecated. Use a pipe instead: 'electrum-zcl listaddresses | electrum-zcl getprivatekeys - '"
 
     @command('')
     def validateaddress(self, address):
@@ -491,7 +491,7 @@ class Commands:
 
     @command('w')
     def setlabel(self, key, label):
-        """Assign a label to an item. Item may be a Vertcoin address or a
+        """Assign a label to an item. Item may be a Zclassic address or a
         transaction ID"""
         self.wallet.set_label(key, label)
 
@@ -567,7 +567,7 @@ class Commands:
             PR_PAID: 'Paid',
             PR_EXPIRED: 'Expired',
         }
-        out['amount (VTC)'] = format_satoshis(out.get('amount'))
+        out['amount (zcl)'] = format_satoshis(out.get('amount'))
         out['status'] = pr_str[out.get('status', PR_UNKNOWN)]
         return out
 
@@ -677,8 +677,8 @@ class Commands:
 
 param_descriptions = {
     'privkey': 'Private key. Type \'?\' to get a prompt.',
-    'destination': 'Vertcoin address, contact or alias',
-    'address': 'Vertcoin address',
+    'destination': 'Zclassic address, contact or alias',
+    'address': 'Zclassic address',
     'seed': 'Seed phrase',
     'txid': 'Transaction ID',
     'pos': 'Position',
@@ -688,8 +688,8 @@ param_descriptions = {
     'pubkey': 'Public key',
     'message': 'Clear text message. Use quotes if it contains spaces.',
     'encrypted': 'Encrypted message',
-    'amount': 'Amount to be sent (in VTC). Type \'!\' to send the maximum available.',
-    'requested_amount': 'Requested amount (in VTC).',
+    'amount': 'Amount to be sent (in zcl). Type \'!\' to send the maximum available.',
+    'requested_amount': 'Requested amount (in zcl).',
     'outputs': 'list of ["address", amount]',
 }
 
@@ -705,7 +705,7 @@ command_options = {
     'show_labels': ("-l", "--labels",      "Show the labels of listed addresses"),
     'nocheck':     (None, "--nocheck",     "Do not verify aliases"),
     'imax':        (None, "--imax",        "Maximum number of inputs"),
-    'tx_fee':      ("-f", "--fee",         "Transaction fee (in VTC)"),
+    'tx_fee':      ("-f", "--fee",         "Transaction fee (in zcl)"),
     'from_addr':   ("-F", "--from",        "Source address. If it isn't in the wallet, it will ask for the private key unless supplied in the format public_key:private_key. It's not saved in the wallet."),
     'change_addr': ("-c", "--change",      "Change address. Default is a spare address, or the source address if it's not in the wallet"),
     'nbits':       (None, "--nbits",       "Number of bits of entropy"),
@@ -751,10 +751,10 @@ config_variables = {
         'requests_dir': 'directory where a bip70 file will be written.',
         'ssl_privkey': 'Path to your SSL private key, needed to sign the request.',
         'ssl_chain': 'Chain of SSL certificates, needed for signed requests. Put your certificate at the top and the root CA at the end',
-        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of vertcoin: URIs. Example: \"(\'file:///var/www/\',\'https://electrum-ltc.org/\')\"',
+        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of vertcoin: URIs. Example: \"(\'file:///var/www/\',\'https://electrum-zcl.org/\')\"',
     },
     'listrequests':{
-        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of vertcoin: URIs. Example: \"(\'file:///var/www/\',\'https://electrum-ltc.org/\')\"',
+        'url_rewrite': 'Parameters passed to str.replace(), in order to create the r= part of vertcoin: URIs. Example: \"(\'file:///var/www/\',\'https://electrum-zcl.org/\')\"',
     }
 }
 
@@ -819,7 +819,7 @@ def add_global_options(parser):
     group = parser.add_argument_group('global options')
     group.add_argument("-v", "--verbose", action="store_true", dest="verbose", default=False, help="Show debugging information")
     group.add_argument("-D", "--dir", dest="electrum_path", help="electrum directory")
-    group.add_argument("-P", "--portable", action="store_true", dest="portable", default=False, help="Use local 'electrum-vtc_data' directory")
+    group.add_argument("-P", "--portable", action="store_true", dest="portable", default=False, help="Use local 'electrum-zcl_data' directory")
     group.add_argument("-w", "--wallet", dest="wallet_path", help="wallet path")
     group.add_argument("--testnet", action="store_true", dest="testnet", default=False, help="Use Testnet")
     group.add_argument("--segwit", action="store_true", dest="segwit", default=False, help="The Wizard will create Segwit seed phrases (Testnet only).")
@@ -828,7 +828,7 @@ def add_global_options(parser):
 def get_parser():
     # create main parser
     parser = argparse.ArgumentParser(
-        epilog="Run 'electrum-vtc help <command>' to see the help for a command")
+        epilog="Run 'electrum-zcl help <command>' to see the help for a command")
     add_global_options(parser)
     subparsers = parser.add_subparsers(dest='cmd', metavar='<command>')
     # gui

@@ -3,9 +3,9 @@ import curses, datetime, locale
 from decimal import Decimal
 import getpass
 
-from electrum_vtc.util import format_satoshis, set_verbosity
-from electrum_vtc.bitcoin import is_valid, COIN, TYPE_ADDRESS
-from electrum_vtc import Wallet, WalletStorage
+from electrum_zcl.util import format_satoshis, set_verbosity
+from electrum_zcl.bitcoin import is_valid, COIN, TYPE_ADDRESS
+from electrum_zcl import Wallet, WalletStorage
 
 _ = lambda x:x
 
@@ -19,7 +19,7 @@ class ElectrumGui:
         self.network = daemon.network
         storage = WalletStorage(config.get_wallet_path())
         if not storage.file_exists:
-            print "Wallet not found. try 'electrum-vtc create'"
+            print "Wallet not found. try 'electrum-zcl create'"
             exit()
         if storage.is_encrypted():
             password = getpass.getpass('Password:', stream=None)
@@ -310,7 +310,7 @@ class ElectrumGui:
 
     def do_send(self):
         if not is_valid(self.str_recipient):
-            self.show_message(_('Invalid Vertcoin address'))
+            self.show_message(_('Invalid Zclassic address'))
             return
         try:
             amount = int(Decimal(self.str_amount) * COIN)

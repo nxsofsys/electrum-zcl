@@ -5,15 +5,15 @@ import time
 import sys
 import traceback
 
-import electrum_vtc as electrum
-from electrum_vtc import bitcoin
-from electrum_vtc.bitcoin import TYPE_ADDRESS, int_to_hex, var_int, ADDRTYPE_P2PKH, ADDRTYPE_P2SH
-from electrum_vtc.i18n import _
-from electrum_vtc.plugins import BasePlugin, hook
-from electrum_vtc.keystore import Hardware_KeyStore, parse_xpubkey
-from electrum_vtc.transaction import push_script, Transaction
+import electrum_zcl as electrum
+from electrum_zcl import bitcoin
+from electrum_zcl.bitcoin import TYPE_ADDRESS, int_to_hex, var_int, ADDRTYPE_P2PKH, ADDRTYPE_P2SH
+from electrum_zcl.i18n import _
+from electrum_zcl.plugins import BasePlugin, hook
+from electrum_zcl.keystore import Hardware_KeyStore, parse_xpubkey
+from electrum_zcl.transaction import push_script, Transaction
 from ..hw_wallet import HW_PluginBase
-from electrum_vtc.util import format_satoshis_plain, print_error, is_verbose
+from electrum_zcl.util import format_satoshis_plain, print_error, is_verbose
 
 try:
     import hid

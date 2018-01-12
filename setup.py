@@ -28,12 +28,12 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         else:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electrum-vtc.desktop']),
-        (os.path.join(usr_share, 'pixmaps/'), ['icons/electrum-vtc.png'])
+        (os.path.join(usr_share, 'applications/'), ['electrum-zcl.desktop']),
+        (os.path.join(usr_share, 'pixmaps/'), ['icons/electrum-zcl.png'])
     ]
 
 setup(
-    name="Electrum-VTC",
+    name="Electrum-zcl",
     version=version.ELECTRUM_VERSION,
     install_requires=[
         'pyaes',
@@ -41,7 +41,7 @@ setup(
         'pbkdf2',
         'requests',
         'qrcode',
-	'vtc_scrypt',
+	'ltc_scrypt',
 	'lyra2re2_hash',
         'protobuf',
         'dnspython',
@@ -49,41 +49,41 @@ setup(
         'PySocks>=1.6.6',
     ],
     packages=[
-        'electrum_vtc',
-        'electrum_vtc_gui',
-        'electrum_vtc_gui.qt',
-        'electrum_vtc_gui.vtc',
-        'electrum_vtc_plugins',
-        'electrum_vtc_plugins.audio_modem',
-        'electrum_vtc_plugins.cosigner_pool',
-        'electrum_vtc_plugins.email_requests',
-        'electrum_vtc_plugins.hw_wallet',
-        'electrum_vtc_plugins.keepkey',
-        'electrum_vtc_plugins.labels',
-        'electrum_vtc_plugins.ledger',
-        'electrum_vtc_plugins.trezor',
-        'electrum_vtc_plugins.digitalbitbox',
-        'electrum_vtc_plugins.virtualkeyboard',
+        'electrum_zcl',
+        'electrum_zcl_gui',
+        'electrum_zcl_gui.qt',
+        'electrum_zcl_gui.vtc',
+        'electrum_zcl_plugins',
+        'electrum_zcl_plugins.audio_modem',
+        'electrum_zcl_plugins.cosigner_pool',
+        'electrum_zcl_plugins.email_requests',
+        'electrum_zcl_plugins.hw_wallet',
+        'electrum_zcl_plugins.keepkey',
+        'electrum_zcl_plugins.labels',
+        'electrum_zcl_plugins.ledger',
+        'electrum_zcl_plugins.trezor',
+        'electrum_zcl_plugins.digitalbitbox',
+        'electrum_zcl_plugins.virtualkeyboard',
     ],
     package_dir={
-        'electrum_vtc': 'lib',
-        'electrum_vtc_gui': 'gui',
-        'electrum_vtc_plugins': 'plugins',
+        'electrum_zcl': 'lib',
+        'electrum_zcl_gui': 'gui',
+        'electrum_zcl_plugins': 'plugins',
     },
     package_data={
-        'electrum_vtc': [
+        'electrum_zcl': [
             'currencies.json',
             'www/index.html',
             'wordlist/*.txt',
             'locale/*/LC_MESSAGES/electrum.mo',
         ]
     },
-    scripts=['electrum-vtc'],
+    scripts=['electrum-zcl'],
     data_files=data_files,
-    description="Lightweight Vertcoin Wallet",
+    description="Lightweight Zclassic Wallet",
     author="Thomas Voegtlin",
     author_email="thomasv@electrum.org",
     license="MIT Licence",
-    url="https://github.com/vertcoin/electrum-vtc",
-    long_description="""Lightweight Vertcoin Wallet"""
+    url="https://github.com/BTCP-community/electrum-zcl",
+    long_description="""Lightweight Zclassic Wallet"""
 )

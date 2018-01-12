@@ -33,8 +33,8 @@ from PyQt4.QtCore import *
 import PyQt4.QtCore as QtCore
 import PyQt4.QtGui as QtGui
 
-from electrum_vtc_gui.qt.qrcodewidget import QRCodeWidget
-from electrum_vtc.i18n import _
+from electrum_zcl_gui.qt.qrcodewidget import QRCodeWidget
+from electrum_zcl.i18n import _
 
 if platform.system() == 'Windows':
     MONOSPACE_FONT = 'Lucida Console'
@@ -50,7 +50,7 @@ class QR_Window(QWidget):
     def __init__(self, win):
         QWidget.__init__(self)
         self.win = win
-        self.setWindowTitle('Electrum-VTC - '+_('Payment Request'))
+        self.setWindowTitle('Electrum-zcl - '+_('Payment Request'))
         self.setMinimumSize(800, 250)
         self.address = ''
         self.label = ''

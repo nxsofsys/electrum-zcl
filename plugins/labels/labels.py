@@ -7,9 +7,9 @@ import traceback
 
 import base64
 
-import electrum_vtc as electrum
-from electrum_vtc.plugins import BasePlugin, hook
-from electrum_vtc.i18n import _
+import electrum_zcl as electrum
+from electrum_zcl.plugins import BasePlugin, hook
+from electrum_zcl.i18n import _
 
 
 

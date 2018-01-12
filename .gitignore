@@ -6,7 +6,7 @@ dist/
 *.egg/
 /electrum.py
 contrib/pyinstaller/
-Electrum_VTC.egg-info/
+Electrum_ZCL.egg-info/
 gui/qt/icons_rc.py
 gui/vtc/icons_rc.py
 gui/vtc/style_rc.py

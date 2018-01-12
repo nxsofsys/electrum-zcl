@@ -1,4 +1,4 @@
-name: electrum-ltc
+name: electrum-zcl
 version: master
 summary: Litecoin thin client
 description: |
@@ -8,16 +8,16 @@ grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict
 
 apps:
-  electrum-ltc:
-    command: desktop-launch electrum-ltc
+  electrum-zcl:
+    command: desktop-launch electrum-zcl
     plugs: [network, network-bind, x11, unity7]
 
 parts:
-  electrum-ltc:
+  electrum-zcl:
     source: .
     plugin: python
     python-version: python2
     stage-packages: [python-qt4]
     build-packages: [pyqt4-dev-tools]
-    install: pyrcc4 icons.qrc -o $SNAPCRAFT_PART_INSTALL/lib/python2.7/site-packages/electrum_ltc_gui/qt/icons_rc.py
+    install: pyrcc4 icons.qrc -o $SNAPCRAFT_PART_INSTALL/lib/python2.7/site-packages/electrum_zcl_gui/qt/icons_rc.py
     after: [desktop-qt4]

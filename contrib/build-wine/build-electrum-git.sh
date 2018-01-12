@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # You probably need to update only this link
-ELECTRUM_GIT_URL=git://github.com/vertcoin/electrum-vtc.git
+ELECTRUM_GIT_URL=git://github.com/BTCP-community/electrum-zcl.git
 BRANCH=master
-NAME_ROOT=electrum-vtc
+NAME_ROOT=electrum-zcl
 
 
 # These settings probably don't need any change
@@ -19,42 +19,42 @@ set -e
 
 cd tmp
 
-if [ -d "electrum-vtc-git" ]; then
+if [ -d "electrum-zcl-git" ]; then
     # GIT repository found, update it
     echo "Pull"
-    cd electrum-vtc-git
+    cd electrum-zcl-git
     git checkout $BRANCH
     git pull
     cd ..
 else
     # GIT repository not found, clone it
     echo "Clone"
-    git clone -b $BRANCH $ELECTRUM_GIT_URL electrum-vtc-git
+    git clone -b $BRANCH $ELECTRUM_GIT_URL electrum-zcl-git
 fi
 
-cd electrum-vtc-git
+cd electrum-zcl-git
 VERSION=`git describe --tags`
 echo "Last commit: $VERSION"
 
 cd ..
 
-rm -rf $WINEPREFIX/drive_c/electrum-vtc
-cp -r electrum-vtc-git $WINEPREFIX/drive_c/electrum-vtc
-cp electrum-vtc-git/LICENCE .
+rm -rf $WINEPREFIX/drive_c/electrum-zcl
+cp -r electrum-zcl-git $WINEPREFIX/drive_c/electrum-zcl
+cp electrum-zcl-git/LICENCE .
 
 # add python packages (built with make_packages)
-cp -r ../../../packages $WINEPREFIX/drive_c/electrum-vtc/
+cp -r ../../../packages $WINEPREFIX/drive_c/electrum-zcl/
 
 # add locale dir
-cp -r ../../../lib/locale $WINEPREFIX/drive_c/electrum-vtc/lib/
+cp -r ../../../lib/locale $WINEPREFIX/drive_c/electrum-zcl/lib/
 
 # Build Qt resources
-wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-vtc/icons.qrc -o C:/electrum-vtc/lib/icons_rc.py
-wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-vtc/icons.qrc -o C:/electrum-vtc/gui/qt/icons_rc.py
-wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-vtc/icons.qrc -o C:/electrum-vtc/lib/icons_rc.py
-wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-vtc/icons.qrc -o C:/electrum-vtc/gui/vtc/icons_rc.py
-wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-vtc/style.qrc -o C:/electrum-vtc/lib/style_rc.py
-wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-vtc/style.qrc -o C:/electrum-vtc/gui/vtc/style_rc.py
+wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-zcl/icons.qrc -o C:/electrum-zcl/lib/icons_rc.py
+wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-zcl/icons.qrc -o C:/electrum-zcl/gui/qt/icons_rc.py
+wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-zcl/icons.qrc -o C:/electrum-zcl/lib/icons_rc.py
+wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-zcl/icons.qrc -o C:/electrum-zcl/gui/zcl/icons_rc.py
+wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-zcl/style.qrc -o C:/electrum-zcl/lib/style_rc.py
+wine $WINEPREFIX/drive_c/Python27/Lib/site-packages/PyQt4/pyrcc4.exe C:/electrum-zcl/style.qrc -o C:/electrum-zcl/gui/zcl/style_rc.py
 
 cd ..
 
@@ -68,7 +68,7 @@ $PYTHON "C:/pyinstaller/pyinstaller.py" --noconfirm --ascii --name $NAME_ROOT-$V
 wine "$WINEPREFIX/drive_c/Program Files (x86)/NSIS/makensis.exe" /DPRODUCT_VERSION=$VERSION electrum.nsi
 
 cd dist
-mv electrum-vtc-setup.exe $NAME_ROOT-$VERSION-setup.exe
+mv electrum-zcl-setup.exe $NAME_ROOT-$VERSION-setup.exe
 cd ..
 
 echo "Done."

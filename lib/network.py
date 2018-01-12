@@ -43,6 +43,7 @@ from interface import Connection, Interface
 import blockchain
 from version import ELECTRUM_VERSION, PROTOCOL_VERSION
 
+# tcp, tcp/tls, http, https
 DEFAULT_PORTS = {'t':'55001', 's':'55002'}
 
 #There is a schedule to move the default list to e-x (electrumx) by Jan 2018
@@ -51,12 +52,12 @@ DEFAULT_PORTS = {'t':'55001', 's':'55002'}
 #then gradually switch remaining nodes to e-x nodes
 
 DEFAULT_SERVERS = {
-    'fr1.vtconline.org': DEFAULT_PORTS,
-    'uk1.vtconline.org': DEFAULT_PORTS,
-    'vtc.horriblecoders.com': DEFAULT_PORTS,
-    'vtc.lukechilds.co': DEFAULT_PORTS,
-    'vtc-cce-1.coinomi.net': {'t':'5028'},
-    'vtc-cce-2.coinomi.net': {'t':'5028'},
+    'electrum-zclassic.xyz':{'t':'50001', 's':'50002'},
+    'electrum-zcl.stream':{'t':'50001', 's':'50002'},
+    'electrum-zcl.party':{'t':'50001', 's':'50002'},
+    'e1.zclassic-electrum.com':{'t':'50001', 's':'50002'},
+    'e2.zclassic-electrum.com':{'t':'50001', 's':'50002'},
+    'e3.zclassic-electrum.com':{'t':'50001', 's':'50002'}
 }
 
 '''
@@ -64,7 +65,7 @@ def set_testnet():
     global DEFAULT_PORTS, DEFAULT_SERVERS
     DEFAULT_PORTS = {'t':'51001', 's':'51002'}
     DEFAULT_SERVERS = {
-        'electrum-ltc.bysh.me': DEFAULT_PORTS,
+        'electrum-zcl.bysh.me': DEFAULT_PORTS,
         'electrum.ltc.xurious.com': DEFAULT_PORTS,
     }
 '''

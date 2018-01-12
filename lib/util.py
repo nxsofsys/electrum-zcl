@@ -35,7 +35,7 @@ import urllib
 import threading
 from i18n import _
 
-base_units = {'VTC':8, 'mVTC':5, 'uVTC':2}
+base_units = {'zcl':8, 'mzcl':5, 'uzcl':2}
 fee_levels = [_('Within 25 blocks'), _('Within 10 blocks'), _('Within 5 blocks'), _('Within 2 blocks'), _('In the next block')]
 
 def normalize_version(v):
@@ -214,7 +214,7 @@ def android_data_dir():
     return PythonActivity.mActivity.getFilesDir().getPath() + '/data'
 
 def android_headers_dir():
-    d = android_ext_dir() + '/org.electrum_vtc.electrum_vtc'
+    d = android_ext_dir() + '/org.electrum_zcl.electrum_zcl'
     if not os.path.exists(d):
         os.mkdir(d)
     return d
@@ -223,7 +223,7 @@ def android_check_data_dir():
     """ if needed, move old directory to sandbox """
     ext_dir = android_ext_dir()
     data_dir = android_data_dir()
-    old_electrum_dir = ext_dir + '/electrum-vtc'
+    old_electrum_dir = ext_dir + '/electrum-zcl'
     if not os.path.exists(data_dir) and os.path.exists(old_electrum_dir):
         import shutil
         new_headers_path = android_headers_dir() + '/blockchain_headers'
@@ -242,11 +242,11 @@ def user_dir():
     if 'ANDROID_DATA' in os.environ:
         return android_check_data_dir()
     elif os.name == 'posix':
-        return os.path.join(os.environ["HOME"], ".electrum-vtc")
+        return os.path.join(os.environ["HOME"], ".electrum-zcl")
     elif "APPDATA" in os.environ:
-        return os.path.join(os.environ["APPDATA"], "Electrum-VTC")
+        return os.path.join(os.environ["APPDATA"], "Electrum-zcl")
     elif "LOCALAPPDATA" in os.environ:
-        return os.path.join(os.environ["LOCALAPPDATA"], "Electrum-VTC")
+        return os.path.join(os.environ["LOCALAPPDATA"], "Electrum-zcl")
     else:
         #raise Exception("No home directory found in environment variables.")
         return
@@ -344,17 +344,13 @@ def time_difference(distance_in_time, include_seconds):
         return "over %d years" % (round(distance_in_minutes / 525600))
 
 mainnet_block_explorers = {
-    'bchain.info': ('https://bchain.info/VTC',
-                        {'tx': 'tx', 'addr': 'addr'}),
-    'explorer.vtconline.org': ('https://explorer.vtconline.org',
+    'ZclassicExplorer.com': ('http://zclassicexplorer.com/',
                         {'tx': 'tx', 'addr': 'address'}),
 }
 
 testnet_block_explorers = {
-    'SoChain': ('https://chain.so',
-                        {'tx': 'tx/LTCTEST', 'addr': 'address/LTCTEST'}),
-    'system default': ('blockchain:',
-                       {'tx': 'tx', 'addr': 'address'}),
+    'ZclassicExplorer.com': ('http://zclassicexplorer.com/',
+                    {'tx': 'tx', 'addr': 'address'}),
 }
 
 def block_explorer_info():
@@ -362,7 +358,7 @@ def block_explorer_info():
     return testnet_block_explorers if bitcoin.TESTNET else mainnet_block_explorers
 
 def block_explorer(config):
-    return config.get('block_explorer', 'bchain.info')
+    return config.get('block_explorer', 'ZclassicExplorer.com')
 
 def block_explorer_tuple(config):
     return block_explorer_info().get(block_explorer(config))

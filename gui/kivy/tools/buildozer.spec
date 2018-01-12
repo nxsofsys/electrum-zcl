@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = Electrum-VTC
+title = Electrum-zcl
 
 # (str) Package name
-package.name = Electrum_VTC
+package.name = Electrum_ZCL
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.electrum_vtc
+package.domain = org.electrum_zcl
 
 # (str) Source code where the main.py live
 source.dir = .
