@@ -3,5 +3,5 @@ from electrum_zcl.i18n import _
 fullname =  _('Audio MODEM')
 description = _('Provides support for air-gapped transaction signing.')
 requires = [('amodem', 'http://github.com/romanz/amodem/')]
-available_for = ['qt', 'vtc']
+available_for = ['qt', 'zcl']
 

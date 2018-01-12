@@ -3,4 +3,4 @@ from electrum_zcl.i18n import _
 fullname = 'Digital Bitbox'
 description = _('Provides support for Digital Bitbox hardware wallet')
 registers_keystore = ('hardware', 'digitalbitbox', _("Digital Bitbox wallet"))
-available_for = ['qt', 'cmdline', 'vtc']
+available_for = ['qt', 'cmdline', 'zcl']

@@ -94,12 +94,12 @@ class ExchangeBase(PrintError):
 class Poloniex(ExchangeBase):
     def get_rates(self, ccy):
         json = self.get_json('poloniex.com', '/public?command=returnTicker')
-        return {ccy: self.convert_btc_to_ccy(ccy, Decimal(json['BTC_zcl']['last']))}
+        return {ccy: self.convert_btc_to_ccy(ccy, Decimal(json['BTC_ZCL']['last']))}
 
 
 class Bittrex(ExchangeBase):
     def get_rates(self, ccy):
-        json = self.get_json('bittrex.com', '/api/v1.1/public/getticker?market=btc-vtc')
+        json = self.get_json('bittrex.com', '/api/v1.1/public/getticker?market=btc-zcl')
         return {ccy: self.convert_btc_to_ccy(ccy, Decimal(json['result']['Last']))}
 
 

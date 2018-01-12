@@ -371,7 +371,7 @@ if __name__ == '__main__':
     if cmdname == 'gui':
         fd, server = daemon.get_fd_or_server(config)
         if fd is not None:
-            plugins = init_plugins(config, config.get('gui', 'vtc'))
+            plugins = init_plugins(config, config.get('gui', 'zcl'))
             d = daemon.Daemon(config, fd)
             d.start()
             d.init_gui(config, plugins)

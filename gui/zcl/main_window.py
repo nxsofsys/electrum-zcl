@@ -62,7 +62,7 @@ from qrcodewidget import QRCodeWidget, QRDialog
 from qrtextedit import ShowQRTextEdit
 from transaction_dialog import show_transaction
 from fee_slider import FeeSlider
-from vtctabwidget import ZclTabWidget
+from zcltabwidget import ZclTabWidget
 
 
 from electrum_zcl import ELECTRUM_VERSION

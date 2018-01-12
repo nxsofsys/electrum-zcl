@@ -50,14 +50,14 @@ try:
     import icons_rc
 except Exception:
     print "Error: Could not find icons file."
-    print "Please run 'pyrcc4 icons.qrc -o gui/vtc/icons_rc.py', and reinstall Electrum"
+    print "Please run 'pyrcc4 icons.qrc -o gui/zcl/icons_rc.py', and reinstall Electrum"
     sys.exit(1)
 
 try:
     import style_rc
 except Exception:
     print "Error: Could not find style file."
-    print "Please run 'pyrcc4 style.qrc -o gui/vtc/style_rc.py', and reinstall Electrum"
+    print "Please run 'pyrcc4 style.qrc -o gui/zcl/style_rc.py', and reinstall Electrum"
     sys.exit(1)
 
 from util import *   # * needed for plugins
@@ -109,7 +109,7 @@ class ElectrumGui:
         run_hook('init_qt', self)
 
     def init_stylesheet(self):
-        f = QFile(":vtcstyle/style.qss")
+        f = QFile(":zclstyle/style.qss")
         if not f.exists():
             print "Unable to load stylesheet, file not found in resources"
             sys.exit(1)

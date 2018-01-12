@@ -6,4 +6,4 @@ description = ' '.join([
     _("Transactions are encrypted and stored on a remote server.")
 ])
 #requires_wallet_type = ['2of2', '2of3']
-available_for = ['qt', 'vtc']
+available_for = ['qt', 'zcl']
