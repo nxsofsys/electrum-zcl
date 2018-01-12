@@ -7,7 +7,7 @@ PYWIN32_URL=http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/py
 PYINSTALLER_URL=https://pypi.python.org/packages/source/P/PyInstaller/PyInstaller-2.1.zip
 NSIS_URL=http://prdownloads.sourceforge.net/nsis/nsis-2.46-setup.exe?download
 SETUPTOOLS_URL=https://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe
-LYRA2RE_HASH_PYTHON_URL=https://github.com/metalicjames/lyra2re-hash-python/archive/master.zip
+PYBLAKE2_URL=pyblake2
 
 
 ## These settings probably don't need change
@@ -98,7 +98,6 @@ wine mingw-get install mingw32-libz
 
 printf "[build]\ncompiler=mingw32\n" > $WINEPREFIX/drive_c/Python27/Lib/distutils/distutils.cfg
 
-$PYTHON -m pip install zcl_scrypt
 $PYTHON -m pip install win_inet_pton
 
-$PYTHON -m pip install $LYRA2RE_HASH_PYTHON_URL
+$PYTHON -m pip install $PYBLAKE2_URL

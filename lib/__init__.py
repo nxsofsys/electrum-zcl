@@ -9,6 +9,7 @@ from simple_config import SimpleConfig, get_config, set_config
 import bitcoin
 import transaction
 import daemon
+import equihash
 from transaction import Transaction
 from plugins import BasePlugin
 from commands import Commands, known_commands
