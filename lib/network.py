@@ -52,12 +52,7 @@ DEFAULT_PORTS = {'t':'55001', 's':'55002'}
 #then gradually switch remaining nodes to e-x nodes
 
 DEFAULT_SERVERS = {
-    'electrum-zclassic.xyz':{'t':'50001', 's':'50002'},
-    'electrum-zcl.stream':{'t':'50001', 's':'50002'},
-    'electrum-zcl.party':{'t':'50001', 's':'50002'},
-    'e1.zclassic-electrum.com':{'t':'50001', 's':'50002'},
-    'e2.zclassic-electrum.com':{'t':'50001', 's':'50002'},
-    'e3.zclassic-electrum.com':{'t':'50001', 's':'50002'}
+    '35.224.186.7':DEFAULT_PORTS,
 }
 
 '''
@@ -771,7 +766,7 @@ class Network(util.DaemonThread):
         self.notify('updated')
 
     def request_header(self, interface, height):
-        #interface.print_error("requesting header %d" % height)
+        interface.print_error("requesting header %d" % height)
         self.queue_request('blockchain.block.get_header', [height], interface)
         interface.request = height
         interface.req_time = time.time()
@@ -788,7 +783,7 @@ class Network(util.DaemonThread):
             interface.print_error("unsolicited header",interface.request, height)
             self.connection_down(interface.server)
             return
-
+        print 'interface mode', interface.mode
         chain = blockchain.check_header(header)
         if interface.mode == 'backward':
             if chain:
@@ -942,8 +937,7 @@ class Network(util.DaemonThread):
                 import urllib, socket
                 socket.setdefaulttimeout(30)
                 self.print_error("downloading ", bitcoin.HEADERS_URL)
-                urllib.urlretrieve(bitcoin.HEADERS_URL, filename + '.tmp')
-                os.rename(filename + '.tmp', filename)
+                urllib.urlretrieve(bitcoin.HEADERS_URL, filename)
                 self.print_error("done.")
             except Exception:
                 self.print_error("download failed. creating file", filename)
@@ -951,6 +945,7 @@ class Network(util.DaemonThread):
             b = self.blockchains[0]
             with b.lock: b.update_size()
             self.downloading_headers = False
+
         self.downloading_headers = True
         t = threading.Thread(target = download_thread)
         t.daemon = True
